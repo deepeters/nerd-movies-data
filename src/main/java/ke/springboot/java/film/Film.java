@@ -2,6 +2,7 @@ package ke.springboot.java.film;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import ke.springboot.java.topic.Topic;
 
@@ -13,7 +14,8 @@ public class Film {
 	private String name;
 	private String description;
 	
-	private Topic topic;
+	@ManyToOne
+	private Topic topic; //each film is now tied to a particular topic as a foreign key
 	
 	public Film() {
 		
@@ -24,7 +26,7 @@ public class Film {
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.topic = new Topic (topicId, "", "");
+		this.topic = new Topic (topicId, "", ""); //makes it easier to create new course objects with a given topic
 	}
 	
 	

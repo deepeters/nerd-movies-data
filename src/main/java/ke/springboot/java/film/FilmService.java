@@ -14,9 +14,9 @@ public class FilmService {
 	@Autowired
 	private FilmRepository filmRepository;
 	
-	public List<Film> getAllFilms () {
+	public List<Film> getAllFilms (String topicId) {
 		List<Film> films = new ArrayList<>();
-		filmRepository.findAll().forEach(films::add);
+		filmRepository.findByTopicId(topicId).forEach(films::add); //get a film related to a particular topic
 		return films;
 	}
 	
